@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginModule } from './pages/login/login.module';
+import { SpotifyAuthServiceService } from './services/spotify-auth-service.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // LoginModule
   ],
-  providers: [],
+  providers: [
+    // SpotifyAuthServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
