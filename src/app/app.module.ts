@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
 import { SpotifyAuthServiceService } from './services/spotify-auth-service.service';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -13,6 +13,7 @@ import { SpotifyAuthServiceService } from './services/spotify-auth-service.servi
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     // LoginModule
   ],
   providers: [
