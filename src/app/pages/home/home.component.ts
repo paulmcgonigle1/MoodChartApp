@@ -32,6 +32,7 @@ export class HomeComponent {
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       });
+      //this is just getting recently played songs
       this.http.get('https://api.spotify.com/v1/me/player/recently-played', { headers }).subscribe((response: any) => {
         this.songs = response.items.map((item: any) => {
           return {
