@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './pages/login/login.module';
 import { SpotifyAuthServiceService } from './services/spotify-auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
