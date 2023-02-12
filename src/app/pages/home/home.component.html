@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="song-list">
+    <div class="song" *ngFor="let song of songs">
+      <div class="song-image">
+        <img [src]="song.image" alt="{{ song.album }}" />
+      </div>
+      <div class="song-details">
+        <h3>{{ song.name }}</h3>
+        <p>{{ song.artist }}</p>
+        <p>{{ song.album }}</p>
+      </div>
+    </div>
+  </div>
+  

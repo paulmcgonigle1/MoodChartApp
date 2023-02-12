@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service.service';
 
 @Component({
@@ -8,9 +9,15 @@ import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service
 })
 export class LoginComponent {
 
-  constructor(private spotifyAuthService: SpotifyAuthServiceService){}
+  constructor(private router: Router ,private spotifyAuthService: SpotifyAuthServiceService){}
 
   ngOnInit():void{
+    //this code checks if token is in local storage and then goes straight to home page
+    // const token = localStorage.getItem('token');
+    // if(token){
+    //   this.router.navigate(['/home']);
+
+    // }
     this.verifyUrlCallBackToken();
   }
 
