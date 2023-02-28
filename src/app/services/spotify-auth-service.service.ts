@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -47,17 +48,22 @@ export class SpotifyAuthServiceService {
     
   // }
   //using httpClient module to request tracks and then subscribe to data.
-  getRecentlyPlayedTracks(){
+  getRecentlyPlayedTracks(): Observable<any> {
     const accessToken = localStorage.getItem('token');
     
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + accessToken
     })
     
-    this.http.get('https://api.spotify.com/v1/me/player/recently-played', { headers })
-    .subscribe((data) => {
-      console.log(data);
-      // process the data and display it in the component's template
+    return this.http.get('https://api.spotify.com/v1/me/player/recently-played', { headers });
+  }
+  getAudioFeatures(trackId: string): Observable<any> {
+    const accessToken = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + accessToken
     });
+
+    return this.http.get(`https://api.spotify.com/v1/audio-features/${trackId}`, { headers });
   }
 }

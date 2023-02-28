@@ -1,15 +1,14 @@
-
-<!-- //just getting persons recent songs listened to -->
-<div class="song-list">
-    <div class="song" *ngFor="let song of songs">
-      <div class="song-image">
-        <img [src]="song.image" alt="{{ song.album }}" />
-      </div>
-      <div class="song-details">
-        <h3>{{ song.name }}</h3>
-        <p>{{ song.artist }}</p>
-        <p>{{ song.album }}</p>
-      </div>
+<div class="song-container">
+  <div class="song-card" *ngFor="let song of songs">
+    <img [src]="song.image" alt="Album cover" />
+    <div>
+      <h3>{{ song.name }}</h3>
+      <p>{{ song.artist }}</p>
+      <p>{{ song.album }}</p>
+      <p>Valence: {{ song.valence }}</p>
+      <p>Energy: {{ song.energy }}</p>
+      <p>Danceability: {{ song.danceability }}</p>
+      <p>Mood: {{song.mood}}</p>
     </div>
   </div>
-  
+</div>
