@@ -7,10 +7,12 @@ import { LoginModule } from './pages/login/login.module';
 import { SpotifyAuthServiceService } from './services/spotify-auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

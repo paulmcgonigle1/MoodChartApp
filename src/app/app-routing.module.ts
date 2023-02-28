@@ -7,7 +7,11 @@ const routes: Routes = [
   {path: '', component:LoginComponent},
   {path: 'home', component:HomeComponent},
 ];
-
+// const routes: Routes = [
+//   {path: '', component: HomeComponent, },
+//   {path: 'home', component:HomeComponent},
+//   {path: 'login', component: LoginComponent}
+// ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
