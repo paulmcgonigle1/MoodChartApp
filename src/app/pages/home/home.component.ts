@@ -11,6 +11,16 @@ import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service
 export class HomeComponent {
 
   public songs: any[] = [];
+  public moodCounts: Record<string, number> = {
+    Happy: 0,
+    Sad: 0,
+    Calm: 0,
+    Romantic: 0,
+    Upbeat: 0,
+    Chill: 0,
+    Talkative: 0,
+    Unknown: 0
+  };
   constructor(private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService){}
  
   
@@ -42,8 +52,10 @@ export class HomeComponent {
             song.energy = audioFeatures.energy.toFixed(2);
             song.danceability = audioFeatures.danceability.toFixed(2);
              song.mood = this.getMood(audioFeatures.valence, audioFeatures.energy, audioFeatures.danceability);
-
+             // Update mood count
+             this.moodCounts[song.mood]++;
           });
+          
   
           return song;
         });
@@ -65,4 +77,27 @@ export class HomeComponent {
       }
       return mood;
     }
+
+    getMostCommonMood(): string {
+      // Get an array of all the moods from the songs
+      const moods = this.songs.map(song => song.mood);
+    
+      // Count the occurrences of each mood using reduce()
+      const moodCounts: Record<string, number> = moods.reduce((counts, mood) => {
+        counts[mood] = (counts[mood] || 0) + 1;
+        return counts;
+      }, {});
+      
+    
+      // Find the mood with the highest count using Object.entries() and reduce()
+      const mostCommonMood = Object.entries(moodCounts).reduce((mostCommon: { mood: string, count: number }, [mood, count]) => {
+        return count > mostCommon.count ? { mood, count } : mostCommon;
+      }, { mood: '', count: 0 });
+      
+
+    
+      return mostCommonMood.mood;
+    }
+    
+    
   }
