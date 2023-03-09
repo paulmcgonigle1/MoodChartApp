@@ -56,6 +56,8 @@ export class SpotifyAuthServiceService {
     })
     
     return this.http.get(`https://api.spotify.com/v1/me/player/recently-played?limit=${limit}`, { headers });
+    
+
   }
   getAudioFeatures(trackId: string): Observable<any> {
     const accessToken = localStorage.getItem('token');

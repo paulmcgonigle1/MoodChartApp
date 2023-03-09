@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service.service';
-
+import { PlaylistService } from 'src/app/services/playlist.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +11,7 @@ import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service
 export class HomeComponent {
 
   public songs: any[] = [];
+  //setting up moodcounts, which is used in the method for getting the most common mood
   public moodCounts: Record<string, number> = {
     Happy: 0,
     Sad: 0,
@@ -21,7 +22,7 @@ export class HomeComponent {
     Talkative: 0,
     Unknown: 0
   };
-  constructor(private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService){}
+  constructor(private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService, private playlistService:PlaylistService){}
  
   
     ngOnInit(): void {
@@ -31,7 +32,9 @@ export class HomeComponent {
       });
       //this is just getting recently played songs
       this.spotifyService.getRecentlyPlayedTracks().subscribe((response: any) => {
+        console.log(response);
         this.songs = response.items.map((item: any) => {
+         
           const track = item.track;
           const song = {
             name: track.name,
@@ -62,21 +65,30 @@ export class HomeComponent {
       });
     }
 //getting mood based on certain featues
-    getMood(valence: number, energy: number, danceability: number): string {
-      let mood: string;
-      if (valence >= 0.5 && energy >= 0.5 && danceability >= 0.5) {
-        mood = 'Happy';
-      } else if (valence < 0.5 && energy >= 0.5 && danceability >= 0.5) {
-        mood = 'Sad';
-      } else if (valence >= 0.5 && energy < 0.5 && danceability >= 0.5) {
-        mood = 'Calm';
-      } else if (valence >= 0.5 && energy >= 0.5 && danceability < 0.5) {
-        mood = 'Romantic';
-      } else {
-        mood = 'Unknown';
-      }
-      return mood;
-    }
+getMood(valence: number, energy: number, danceability: number): string {
+  let mood: string;
+  if (valence >= 0.75 && energy >= 0.75 && danceability >= 0.75) {
+    mood = 'Energetic';
+  } else if (valence >= 0.75 && energy >= 0.75 && danceability < 0.75) {
+    mood = 'Upbeat';
+  } else if (valence >= 0.75 && energy < 0.75 && danceability < 0.75) {
+    mood = 'Chill';
+  } else if (valence < 0.25 && energy < 0.25 && danceability < 0.25) {
+    mood = 'Sad';
+  } else if (valence < 0.5 && energy >= 0.5 && danceability < 0.5) {
+    mood = 'Calm';
+  } else if (valence < 0.5 && energy < 0.5 && danceability >= 0.5) {
+    mood = 'Romantic';
+  } else if (valence >= 0.5 && energy < 0.5 && danceability < 0.5) {
+    mood = 'Serene';
+  } else if (valence < 0.5 && energy >= 0.5 && danceability >= 0.5) {
+    mood = 'Angry';
+  } else {
+    mood = 'Happy';
+  }
+  return mood;
+}
+
 
     getMostCommonMood(): string {
       // Get an array of all the moods from the songs
@@ -98,6 +110,19 @@ export class HomeComponent {
     
       return mostCommonMood.mood;
     }
+    createPlaylist(): void {
+      // Get the most common mood for the day
+      const mood = this.getMostCommonMood();
     
+      // Create an array of song URIs
+      const songUris = this.songs.map(song => song.uri);
+    
+      // Call the createPlaylist method from the PlaylistService
+      this.playlistService.createPlaylist(songUris, mood).subscribe((response: any) => {
+        console.log('Playlist created:', response);
+      }, (error: any) => {
+        console.error('Error creating playlist:', error);
+      });
+    }
     
   }
