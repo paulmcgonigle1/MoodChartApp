@@ -1,5 +1,10 @@
 <h2>Most common mood: {{ getMostCommonMood() }}</h2>
-<button (click)="createPlaylist()">Create playlist</button>
+<div>
+  <h2>Add Playlist</h2>
+  <input type="text" [(ngModel)]="playlistName" placeholder="Enter playlist name">
+<button (click)="createPlaylist(playlistName)">Create Playlist</button>
+
+</div>
 <div class="song-container">
   <div class="song-card" *ngFor="let song of songs">
     <img [src]="song.image" alt="Album cover" />

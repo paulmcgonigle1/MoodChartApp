@@ -7,19 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class PlaylistService {
 
-  private playlistsUrl = 'http://localhost:3000/api/playlists';
+  // private playlistsUrl = 'http://localhost:3000/api/playlists';
 
   constructor(private http: HttpClient) { }
 
-  createPlaylist(songs: any[], mood: string): Observable<any> {
-    const playlist = {
-      name: `Playlist created on ${new Date().toLocaleDateString()}`,
-      mood: mood,
-      user: 'USER_ID_HERE',
-      songs: songs
+  addPlaylist(playlistData: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
     };
-
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<any>(this.playlistsUrl, playlist, { headers });
-  }
+  
+    return this.http.post('https://7jnqsugxj0.execute-api.eu-west-1.amazonaws.com/testing/playlists', playlistData, httpOptions);
+ }
 }

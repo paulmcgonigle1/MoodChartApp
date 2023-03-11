@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Import the FormsModule
 import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service.service';
 import { PlaylistService } from 'src/app/services/playlist.service';
 @Component({
@@ -22,6 +23,7 @@ export class HomeComponent {
     Talkative: 0,
     Unknown: 0
   };
+  public playlistName: string = '';
   constructor(private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService, private playlistService:PlaylistService){}
  
   
@@ -90,7 +92,7 @@ getMood(valence: number, energy: number, danceability: number): string {
 }
 
 
-    getMostCommonMood(): string {
+getMostCommonMood(): string {
       // Get an array of all the moods from the songs
       const moods = this.songs.map(song => song.mood);
     
@@ -110,19 +112,27 @@ getMood(valence: number, energy: number, danceability: number): string {
     
       return mostCommonMood.mood;
     }
-    createPlaylist(): void {
+    createPlaylist(playlistName: string): void {
       // Get the most common mood for the day
       const mood = this.getMostCommonMood();
     
       // Create an array of song URIs
       const songUris = this.songs.map(song => song.uri);
     
-      // Call the createPlaylist method from the PlaylistService
-      this.playlistService.createPlaylist(songUris, mood).subscribe((response: any) => {
+      // Create an object containing the playlist name, songs, and mood
+      const playlistData = {
+        name: playlistName,
+        songs: songUris,
+        mood: mood
+      };
+    
+      // Call the addPlaylist method from the PlaylistService
+      this.playlistService.addPlaylist(playlistData).subscribe((response: any) => {
         console.log('Playlist created:', response);
       }, (error: any) => {
         console.error('Error creating playlist:', error);
       });
     }
+    
     
   }

@@ -8,18 +8,21 @@ import { SpotifyAuthServiceService } from './services/spotify-auth-service.servi
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
+import { FormsModule } from '@angular/forms'; // Import the FormsModule
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
+
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
     // LoginModule
   ],
   providers: [
