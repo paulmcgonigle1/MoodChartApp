@@ -1,21 +1,15 @@
-<h2>Most common mood: {{ getMostCommonMood() }}</h2>
-<div>
-  <h2>Add Playlist</h2>
-  <input type="text" [(ngModel)]="playlistName" placeholder="Enter playlist name">
-<button (click)="createPlaylist(playlistName)">Create Playlist</button>
-
-</div>
-<div class="song-container">
-  <div class="song-card" *ngFor="let song of songs">
-    <img [src]="song.image" alt="Album cover" />
-    <div>
-      <h3>{{ song.name }}</h3>
-      <p>{{ song.artist }}</p>
-      <p>{{ song.album }}</p>
-      <p>Valence: {{ song.valence }}</p>
-      <p>Energy: {{ song.energy }}</p>
-      <p>Danceability: {{ song.danceability }}</p>
-      <p>Mood: {{song.mood}}</p>
-    </div>
-  </div>
+<div class="container">
+  <h1>Welcome to Spotify Song Moodboard</h1>
+  <p>Log in with Spotify to get started</p>
+  <button (click)="initiateAuth()">Log In with Spotify</button>
+ 
+  <hr>
+  <h2>About the App</h2>
+  <p>Spotify Song Moodboard is an app that uses machine learning algorithms to guess your mood based on your recently played songs. It then creates a playlist of songs that match your mood. </p>
+  <h2>How it Works</h2>
+  <ol>
+    <li>Log in with your Spotify account</li>
+    <li>View your recently played songs and see what mood you're in</li>
+    <li>Create a playlist with songs that match your mood</li>
+  </ol>
 </div>
