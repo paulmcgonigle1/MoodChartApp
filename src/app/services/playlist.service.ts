@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class PlaylistService {
 
-  // private playlistsUrl = 'http://localhost:3000/api/playlists';
+  private playlistsUrl = 'https://7jnqsugxj0.execute-api.eu-west-1.amazonaws.com/testing/playlists';
+
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,9 @@ export class PlaylistService {
       })
     };
   
-    return this.http.post('https://7jnqsugxj0.execute-api.eu-west-1.amazonaws.com/testing/playlists', playlistData, httpOptions);
+    return this.http.post(this.playlistsUrl, playlistData, httpOptions);
  }
+ getPlaylists(): Observable<any> {
+  return this.http.get<any>(this.playlistsUrl);
+}
 }

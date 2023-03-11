@@ -1,0 +1,10 @@
+<div class="playlist-list">
+    <h1>Your Playlists</h1>
+    <ul>
+      <li *ngFor="let playlist of playlists">
+        <h2>{{ playlist.name }}</h2>
+        <p>{{ playlist.mood }}</p>
+      </li>
+    </ul>
+  </div>
+  

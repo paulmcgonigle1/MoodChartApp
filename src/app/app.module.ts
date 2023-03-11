@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { SongsComponent } from './pages/songs/songs.component'; // Import the FormsModule
+import { SongsComponent } from './pages/songs/songs.component';
+import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { SongsComponent } from './pages/songs/songs.component'; // Import the Fo
     HomeComponent,
     NavbarComponent,
     SongsComponent,
+    PlaylistmoodsComponent,
+  
 
  
   ],
