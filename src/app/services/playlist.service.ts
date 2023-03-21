@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlaylistService {
 
-  private playlistsUrl = 'https://7jnqsugxj0.execute-api.eu-west-1.amazonaws.com/testing/playlists';
+  private playlistsUrlAPIGATEWAY = 'https://7jnqsugxj0.execute-api.eu-west-1.amazonaws.com/testing/playlists';
 
 
   constructor(private http: HttpClient) { }
@@ -19,9 +19,18 @@ export class PlaylistService {
       })
     };
   
-    return this.http.post(this.playlistsUrl, playlistData, httpOptions);
+    return this.http.post(this.playlistsUrlAPIGATEWAY, playlistData, httpOptions);
  }
- getPlaylists(): Observable<any> {
-  return this.http.get<any>(this.playlistsUrl);
-}
-}
+//  getPlaylists(): Observable<any> {
+//   return this.http.get<any>(this.playlistsUrlAPIGATEWAY);
+// }
+
+getPlaylists(): Observable<any[]> {
+  return this.http.get<any>(this.playlistsUrlAPIGATEWAY).pipe(
+    map(response => JSON.parse(response.body))
+  );
+
+
+
+
+}}

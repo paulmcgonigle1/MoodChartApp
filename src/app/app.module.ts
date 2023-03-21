@@ -11,6 +11,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { SongsComponent } from './pages/songs/songs.component';
 import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
+import { PlaylistService } from './services/playlist.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.comp
   ],
   providers: [
     // SpotifyAuthServiceService
+    PlaylistService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,13 +9,15 @@ import { PlaylistService } from 'src/app/services/playlist.service';
 })
 export class PlaylistmoodsComponent {
 
-  playlists: any[] = [];
+  public playlists: any[] = [];
 
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
     this.playlistService.getPlaylists().subscribe(
       data => {
+        console.log(data);
+       
         this.playlists = data;
       },
       error => {
