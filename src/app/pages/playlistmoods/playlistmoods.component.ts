@@ -10,7 +10,7 @@ import { PlaylistService } from 'src/app/services/playlist.service';
 export class PlaylistmoodsComponent {
 
   public playlists: any[] = [];
-
+  public selectedPlaylist: any = null;
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
@@ -25,6 +25,11 @@ export class PlaylistmoodsComponent {
       }
     );
   }
+  showPlaylistSongs(playlist: any) {
+    this.selectedPlaylist = playlist;
+  }
+  
+
 
 }
 //This code retrieves the playlists using the getPlaylists() method from the PlaylistService and assigns the returned data to the playlists array in the component.
