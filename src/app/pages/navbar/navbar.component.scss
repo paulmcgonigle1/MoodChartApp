@@ -1,0 +1,70 @@
+// Navbar styles
+.navbar {
+    background-color: #F9A826;
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    height: 70px;
+    padding: 0 20px;
+  
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+  
+      &:hover {
+        color: white;
+      }
+    }
+  
+    .nav-link {
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-right: 10px;
+  
+      &:hover {
+        color: white;
+      }
+  
+      &.active {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+    }
+  
+    .navbar-toggler {
+      background-color: white;
+      border-radius: 5px;
+    }
+  
+    .navbar-toggler-icon {
+      background-color: white;
+      border-radius: 5px;
+  
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 1.5em;
+        height: 0.125em;
+        vertical-align: middle;
+        background: white;
+        border-radius: 1em;
+        position: relative;
+        top: -0.4em;
+      }
+  
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 1.5em;
+        height: 0.125em;
+        vertical-align: middle;
+        background: white;
+        border-radius: 1em;
+        position: relative;
+        top: 0.4em;
+      }
+    }
+  }
+  

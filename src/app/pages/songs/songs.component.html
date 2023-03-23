@@ -1,21 +1,26 @@
-<h2>Most common mood: {{ getMostCommonMood() }}</h2>
-<div>
-  <h2>Add Playlist</h2>
-  <input type="text" [(ngModel)]="playlistName" placeholder="Enter playlist name">
-<button (click)="createPlaylist(playlistName)">Create Playlist</button>
+<div class="container">
+  <h2>Most common mood: {{ getMostCommonMood() }}</h2>
+  
+  <div class="add-playlist-section">
+    <h2>Add Playlist</h2>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="playlistName" class="form-control" placeholder="Enter playlist name">
+    </div>
+    <button class="btn btn-primary" (click)="createPlaylist(playlistName)">Create Playlist</button>
+  </div>
 
-</div>
-<div class="song-container">
-  <div class="song-card" *ngFor="let song of songs">
-    <img [src]="song.image" alt="Album cover" />
-    <div>
-      <h3>{{ song.name }}</h3>
-      <p>{{ song.artist }}</p>
-      <p>{{ song.album }}</p>
-      <p>Valence: {{ song.valence }}</p>
-      <p>Energy: {{ song.energy }}</p>
-      <p>Danceability: {{ song.danceability }}</p>
-      <p>Mood: {{song.mood}}</p>
+  <div class="song-container">
+    <div class="song-card" *ngFor="let song of songs">
+      <img [src]="song.image" alt="Album cover" />
+      <div>
+        <h3>{{ song.name }}</h3>
+        <p>{{ song.artist }}</p>
+        <p>{{ song.album }}</p>
+        <p>Valence: {{ song.valence }}</p>
+        <p>Energy: {{ song.energy }}</p>
+        <p>Danceability: {{ song.danceability }}</p>
+        <p>Mood: {{song.mood}}</p>
+      </div>
     </div>
   </div>
 </div>
