@@ -30,7 +30,22 @@ getPlaylists(): Observable<any[]> {
     map(response => JSON.parse(response.body))
   );
 
+  
+  
 
 
 
-}}
+
+}
+getMoods(): Observable<string[]> {
+  return this.getPlaylists().pipe(
+    map(playlists => {
+      const moods = playlists.map(playlist => playlist.mood);
+      return Array.from(new Set(moods)); // remove duplicates
+    })
+  );
+}
+
+
+
+}

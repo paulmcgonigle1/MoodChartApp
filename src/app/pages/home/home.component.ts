@@ -20,24 +20,7 @@ export class HomeComponent {
     //   this.router.navigate(['/home']);
 
     // }
-    this.verifyUrlCallBackToken();
-  }
-  initiateAuth(){
-    this.spotifyAuthService.redirectToSpotifyAuth();
-
-  }
-  getSongs(){
     
-    this.spotifyAuthService.getRecentlyPlayedTracks();
   }
-
-  verifyUrlCallBackToken(){
-    const token = this.spotifyAuthService.getUrlCallbackToken();
-    console.log(token);
-
-    localStorage.setItem('token',this.spotifyAuthService.getUrlCallbackToken())
-    if(!!token){
-      this.router.navigate(['/songs']);
-     }
-  }
+ 
   }

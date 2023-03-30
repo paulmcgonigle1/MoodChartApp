@@ -111,26 +111,48 @@ getMostCommonMood(): string {
     
       return mostCommonMood.mood;
     }
+    // createPlaylist(playlistName: string): void {
+    //   // Get the most common mood for the day
+    //   const mood = this.getMostCommonMood();
+    
+    //   // Create an array of song URIs
+    //   const songUris = this.songs.map(song => song.uri);
+    
+    //   // Create an object containing the playlist name, songs, and mood
+    //   const playlistData = {
+    //     name: playlistName,
+    //     songs: songUris,
+    //     mood: mood
+    //   };
+    
+    //   // Call the addPlaylist method from the PlaylistService
+    //   this.playlistService.addPlaylist(playlistData).subscribe((response: any) => {
+    //     console.log('Playlist created:', response);
+    //   }, (error: any) => {
+    //     console.error('Error creating playlist:', error);
+    //   });
+    // }
+ 
     createPlaylist(playlistName: string): void {
-      // Get the most common mood for the day
       const mood = this.getMostCommonMood();
-    
-      // Create an array of song URIs
-      const songUris = this.songs.map(song => song.uri);
-    
-      // Create an object containing the playlist name, songs, and mood
+      const songData = this.songs.map((song: any) => {
+        return {
+          name: song.name,
+          artist: song.artist,
+          album: song.album,
+          image: song.image,
+          uri: song.uri
+        };
+      });
       const playlistData = {
         name: playlistName,
-        songs: songUris,
+        songs: songData,
         mood: mood
       };
-    
-      // Call the addPlaylist method from the PlaylistService
       this.playlistService.addPlaylist(playlistData).subscribe((response: any) => {
         console.log('Playlist created:', response);
       }, (error: any) => {
         console.error('Error creating playlist:', error);
       });
+      }
     }
-    
-}

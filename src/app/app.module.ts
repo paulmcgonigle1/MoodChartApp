@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { SongsComponent } from './pages/songs/songs.component';
 import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
 import { PlaylistService } from './services/playlist.service';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PlaylistService } from './services/playlist.service';
     NavbarComponent,
     SongsComponent,
     PlaylistmoodsComponent,
+    LoginComponent,
   
   
 

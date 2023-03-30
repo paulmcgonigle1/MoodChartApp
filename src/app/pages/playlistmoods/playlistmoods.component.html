@@ -1,27 +1,36 @@
+<div class="header">
+  <h1>Playlist Moods</h1>
+  <p>Here are your saved playlists grouped by mood.</p>
+</div>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Your Playlists</h1>
-    </div>
-  </div>
-  <div class="row">
+ 
+  
+  <div class="row playlist-list">
     <div class="col-md-6" *ngFor="let playlist of playlists">
-      <div class="card mb-3">
-        <img src="..." class="card-img-top" alt="...">
+      <div class="card mb-3" [ngClass]="playlist.mood.toLowerCase()">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
           <h5 class="card-title">{{ playlist.name }}</h5>
           <p class="card-text">Mood: {{ playlist.mood }}</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#playlistModal" (click)="showPlaylistSongs(playlist)">View Songs</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#playlistModal" (click)="showPlaylistSongs(playlist)">View Songs</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="col-md-4">
+      <aside>
+        <h2>Recent Moods</h2>
+        <ul>
+          <li *ngFor="let mood of moods">{{ mood }}</li>
+        </ul>
+      </aside>
+    </div>
+<!-- Playlist Modal -->
 <!-- Playlist Modal -->
 <div class="modal fade" id="playlistModal" tabindex="-1" role="dialog" aria-labelledby="playlistModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content custom-modal">
       <div class="modal-header">
         <h5 class="modal-title" id="playlistModalLabel">{{ selectedPlaylist?.name }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="selectedPlaylist = null">

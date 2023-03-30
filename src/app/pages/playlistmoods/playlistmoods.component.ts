@@ -11,6 +11,7 @@ export class PlaylistmoodsComponent {
 
   public playlists: any[] = [];
   public selectedPlaylist: any = null;
+  public moods: any[] = [];
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
@@ -19,6 +20,15 @@ export class PlaylistmoodsComponent {
         console.log(data);
        
         this.playlists = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.playlistService.getMoods().subscribe(
+      data => {
+        console.log(data);
+        this.moods = data;
       },
       error => {
         console.log(error);

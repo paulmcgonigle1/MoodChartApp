@@ -1,6 +1,34 @@
 .playlist-list {
   margin: 20px;
-}
+   .card {
+      &.happy {
+        background-color: #ffd966;
+      }
+      &.sad {
+        background-color: #0070c0;
+      }
+      &.calm {
+        background-color: #8ea9db;
+      }
+      &.romantic {
+        background-color: #e06666;
+      }
+      &.upbeat {
+        background-color: #70ad47;
+      }
+      &.chill {
+        background-color: #b4a7d6;
+      }
+      &.talkative {
+        background-color: #ffc000;
+      }
+      &.unknown {
+        background-color: #6d6d6d;
+      }
+    }
+  }
+  
+
 
 h1 {
   font-size: 24px;
@@ -15,7 +43,7 @@ ul {
 
 li {
   display: inline-block;
-  width: 150px;
+  // width: 150px;
   height: 150px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -31,4 +59,26 @@ h2 {
 
 p {
   margin: 5px 0;
+}
+.modal-dialog {
+  max-width: 80%;
+  margin: 10%;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+.header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 18px;
+  color: #666;
 }

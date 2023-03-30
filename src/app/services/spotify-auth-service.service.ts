@@ -48,7 +48,7 @@ export class SpotifyAuthServiceService {
     
   // }
   //using httpClient module to request tracks and then subscribe to data.
-  getRecentlyPlayedTracks(limit:number = 50): Observable<any> {
+  getRecentlyPlayedTracks(limit:number = 25): Observable<any> {
     const accessToken = localStorage.getItem('token');
     
     const headers = new HttpHeaders({
