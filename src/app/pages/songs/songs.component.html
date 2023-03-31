@@ -4,7 +4,7 @@
   <div class="add-playlist-section">
     <h2>Add Playlist For todays mood</h2>
     <div class="form-group">
-      <input type="text" [(ngModel)]="playlistName" class="form-control" placeholder="Enter playlist name">
+      <input type="text" class="form-control" placeholder="Enter playlist name" [(ngModel)]="playlistName">
     </div>
     <button class="btn btn-primary" (click)="createPlaylist(playlistName)">Create Playlist</button>
   </div>

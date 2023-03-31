@@ -13,6 +13,7 @@ import { SongsComponent } from './pages/songs/songs.component';
 import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
 import { PlaylistService } from './services/playlist.service';
 import { LoginComponent } from './pages/login/login.component';
+// import { AuthGuardComponent } from './guards/auth-guard/auth-guard.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
     SongsComponent,
     PlaylistmoodsComponent,
     LoginComponent,
+    // AuthGuardComponent,
   
   
 

@@ -1,36 +1,46 @@
-<div class="header">
-  <h1>Playlist Moods</h1>
-  <p>Here are your saved playlists grouped by mood.</p>
-</div>
 <div class="container">
- 
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Playlist Moods</h1>
+      <p class="text-center">Here are your saved playlists grouped by mood.</p>
+    </div>
+  </div>
   
-  <div class="row playlist-list">
-    <div class="col-md-6" *ngFor="let playlist of playlists">
-      <div class="card mb-3" [ngClass]="playlist.mood.toLowerCase()">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-          <h5 class="card-title">{{ playlist.name }}</h5>
-          <p class="card-text">Mood: {{ playlist.mood }}</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#playlistModal" (click)="showPlaylistSongs(playlist)">View Songs</button>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let playlist of playlists">
+          <div class="card mb-3" [ngClass]="playlist.mood.toLowerCase()">
+            <div class="card-body">
+              <h5 class="card-title">{{ playlist.name }}</h5>
+              <p class="card-text">Mood: {{ playlist.mood }}</p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#playlistModal-' + playlist._id" (click)="showPlaylistSongs(playlist)">View Songs</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="col-md-4">
-      <aside>
-        <h2>Recent Moods</h2>
-        <ul>
-          <li *ngFor="let mood of moods">{{ mood }}</li>
-        </ul>
-      </aside>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Recent Moods</h5>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let mood of moods">
+               <div class="playlist-details">
+                <h5>{{ mood }}</h5>
+                <p>{{ getPlaylistCountByMood(mood) }} Playlists</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div></div>
+
 <!-- Playlist Modal -->
-<!-- Playlist Modal -->
-<div class="modal fade" id="playlistModal" tabindex="-1" role="dialog" aria-labelledby="playlistModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{ 'playlistModal-' + selectedPlaylist?._id }}" tabindex="-1" role="dialog" aria-labelledby="playlistModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content custom-modal">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="playlistModalLabel">{{ selectedPlaylist?.name }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="selectedPlaylist = null">
@@ -40,8 +50,14 @@
       <div class="modal-body">
         <p>Mood: {{ selectedPlaylist?.mood }}</p>
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let song of selectedPlaylist?.songs">{{ song }}</li>
+          <li class="list-group-item" *ngFor="let song of selectedPlaylist?.songs">
+            <div class="song-item">
+              <img src="{{ song.image }}" alt="{{ song.name }} image" class="song-image">
+              <span class="song-name">{{ song.name }}</span>
+            </div>
+          </li>
         </ul>
+        
       </div>
     </div>
   </div>

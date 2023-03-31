@@ -12,15 +12,15 @@ export class PlaylistService {
 
   constructor(private http: HttpClient) { }
 
-  addPlaylist(playlistData: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-  
-    return this.http.post(this.playlistsUrlAPIGATEWAY, playlistData, httpOptions);
- }
+ 
+ addPlaylist(playlistData: any): Observable<any> {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+  return this.http.post<any>(`${this.playlistsUrlAPIGATEWAY}`, playlistData, httpOptions);
+}
 //  getPlaylists(): Observable<any> {
 //   return this.http.get<any>(this.playlistsUrlAPIGATEWAY);
 // }

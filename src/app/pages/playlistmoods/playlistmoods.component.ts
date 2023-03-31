@@ -36,8 +36,22 @@ export class PlaylistmoodsComponent {
     );
   }
   showPlaylistSongs(playlist: any) {
-    this.selectedPlaylist = playlist;
+    this.selectedPlaylist = { 
+      _id: playlist._id,
+      name: playlist.name,
+      mood: playlist.mood,
+      songs: playlist.songs.map((song: any) => {
+        return {
+          name: song.name,
+          image: song.image
+        }
+      })
+    };
   }
+  getPlaylistCountByMood(mood: string): number {
+    return this.playlists.filter(playlist => playlist.mood === mood).length;
+  }
+  
   
 
 

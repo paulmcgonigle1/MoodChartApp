@@ -4,13 +4,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
 import { SongsComponent } from './pages/songs/songs.component';
+import { AuthGuard } from './guards/auth-guard/auth-guard.component';
 // import { MoodAnalysisComponent } from './pages/mood-analysis/mood-analysis.component';
 
 const routes: Routes = [
   {path: '', component:LoginComponent},
   {path: 'home', component:HomeComponent},
-  {path: 'songs', component:SongsComponent},
-  {path: 'moods', component:PlaylistmoodsComponent},
+  {path: 'songs', component:SongsComponent,canActivate:[AuthGuard]},
+  {path: 'moods', component:PlaylistmoodsComponent, canActivate:[AuthGuard]},
   
   
   // {path:'mood-analysis', component:MoodAnalysisComponent}

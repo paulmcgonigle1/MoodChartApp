@@ -1,84 +1,302 @@
-.playlist-list {
-  margin: 20px;
-   .card {
-      &.happy {
-        background-color: #ffd966;
-      }
-      &.sad {
-        background-color: #0070c0;
-      }
-      &.calm {
-        background-color: #8ea9db;
-      }
-      &.romantic {
-        background-color: #e06666;
-      }
-      &.upbeat {
-        background-color: #70ad47;
-      }
-      &.chill {
-        background-color: #b4a7d6;
-      }
-      &.talkative {
-        background-color: #ffc000;
-      }
-      &.unknown {
-        background-color: #6d6d6d;
-      }
-    }
-  }
-  
 
 
-h1 {
-  font-size: 24px;
+.card-title {
   font-weight: bold;
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #333;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.card-text {
+  margin-bottom: 10px;
+  color: #555;
 }
 
-li {
-  display: inline-block;
-  // width: 150px;
-  height: 150px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item:hover {
   background-color: #f9f9f9;
 }
 
-h2 {
+.list-group-item .playlist-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.list-group-item .playlist-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group-item .playlist-details h5 {
   font-size: 18px;
   margin: 0;
 }
 
-p {
-  margin: 5px 0;
-}
-.modal-dialog {
-  max-width: 80%;
-  margin: 10%;
+.list-group-item .playlist-details p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #999;
 }
 
-.modal-content {
-  border-radius: 0;
-}
-.header {
-  text-align: center;
-  margin-top: 50px;
+.list-group-item .playlist-details button {
+  margin-left: auto;
 }
 
-.header h1 {
-  font-size: 36px;
+
+.song-item {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.header p {
-  font-size: 18px;
-  color: #666;
+.song-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
+$happy-color: #28a745;
+$sad-color: #007bff;
+$calm-color: #6c757d;
+$romantic-color: #dc3545;
+$upbeat-color: #ffc107;
+$chill-color: #17a2b8;
+$talkative-color: #6610f2;
+$unknown-color: #6c757d;
+
+
+.card {
+  border-radius: 20px;
+  
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-text {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item:hover {
+  background-color: #f9f9f9;
+}
+
+.list-group-item .playlist-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.list-group-item .playlist-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group-item .playlist-details h5 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.list-group-item .playlist-details p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.list-group-item .playlist-details button {
+  margin-left: auto;
+}
+
+
+.song-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.song-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+$happy-color: #aaf0ba;
+$sad-color: #89bbf1;
+$calm-color: #436b8e;
+$romantic-color: #e97e89;
+$upbeat-color: #ffc107;
+$chill-color: #17a2b8;
+$talkative-color: #b28fea;
+$unknown-color: #6c757d;
+
+.card.mb-3.happy {
+  background-color: $happy-color;
+}
+
+.card.mb-3.sad {
+  background-color: $sad-color;
+}
+
+.card.mb-3.calm {
+  background-color: $calm-color;
+}
+
+.card.mb-3.romantic {
+  background-color: $romantic-color;
+}
+
+.card.mb-3.upbeat {
+  background-color: $upbeat-color;
+}
+
+.card.mb-3.chill {
+  background-color: $chill-color;
+}
+
+.card.mb-3.talkative {
+  background-color: $talkative-color;
+}
+
+.card.mb-3.unknown {
+  background-color: $unknown-color;
+}
+.song-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: #fff;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+
+.song-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: #fff;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
