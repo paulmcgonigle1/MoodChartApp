@@ -3,7 +3,7 @@ export const environment = {
     
     clientId: 'c4cd5531ce004764a2ef3a24bcb776b4',
     authEndpoint: 'https://accounts.spotify.com/authorize',
-    redirectUrl: 'https://moodchartapp-production.up.railway.app/callback',
+    redirectUrl: 'https://moodchartapp-production.up.railway.app/login',
     scopes:[
         "user-read-currently-playing", 
     "user-read-recently-played", 
