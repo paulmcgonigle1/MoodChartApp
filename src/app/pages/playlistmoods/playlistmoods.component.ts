@@ -52,7 +52,18 @@ export class PlaylistmoodsComponent {
     return this.playlists.filter(playlist => playlist.mood === mood).length;
   }
   
-  
+  deletePlaylist(playlist: any) {
+    console.log(playlist);
+    this.playlistService.deletePlaylist(playlist._id).subscribe(
+      data => {
+        // Remove the deleted playlist from the array
+        this.playlists = this.playlists.filter(p => p._id !== playlist._id);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
 
 }

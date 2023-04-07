@@ -12,7 +12,11 @@ import { PlaylistService } from 'src/app/services/playlist.service';
 })
 export class HomeComponent {
   constructor(private router: Router ,private spotifyAuthService: SpotifyAuthServiceService){}
+ 
 
+  navigateToSongs() {
+    this.router.navigate(['/songs']);
+  }
   ngOnInit():void{
     //this code checks if token is in local storage and then goes straight to home page
     // const token = localStorage.getItem('token');

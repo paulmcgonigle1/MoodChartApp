@@ -1,39 +1,47 @@
-<!-- <div class="container">
-  <h1>Welcome to Spotify Song Moodboard</h1>
-  <p>Log in with Spotify to get started</p>
-  <button (click)="initiateAuth()">Log In with Spotify</button>
- 
-  <hr>
-  <h2>About the App</h2>
-  <p>Spotify Song Moodboard is an app that uses machine learning algorithms to guess your mood based on your recently played songs. It then creates a playlist of songs that match your mood. </p>
-  <h2>How it Works</h2>
-  <ol>
-    <li>Log in with your Spotify account</li>
-    <li>View your recently played songs and see what mood you're in</li>
-    <li>Create a playlist with songs that match your mood</li>
-  </ol>
-</div> -->
-<div class="container my-5">
-  <h1 class="text-center mb-5">Welcome to Spotify Song Moodboard</h1>
-  <!-- <div class="row justify-content-center">
+<div class="container-fluid bg-light">
+  <div class="row justify-content-center align-items-center py-5">
     <div class="col-md-6">
-      <p class="lead mb-5 text-center">Log in with Spotify to get started</p>
-      <button class="btn btn-primary btn-lg btn-block" (click)="initiateAuth()">Log In with Spotify</button>
+      <h1 class="display-4 text-center mb-4">Welcome to Moodify</h1>
+      <p class="lead text-center mb-5">An app that uses machine learning algorithms to guess your mood based on your recently played songs and creates a playlist of songs that match your mood.</p>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-primary btn-lg" (click)="navigateToSongs()">Get Started</button>
+
+      </div>
     </div>
-  </div> -->
-  <hr class="my-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h2 class="text-center mb-4">About the App</h2>
-      <p class="text-center">Spotify Song Moodboard is an app that uses machine learning algorithms to guess your mood based on your recently played songs. It then creates a playlist of songs that match your mood.</p>
-      <h2 class="text-center mt-5 mb-4">How it Works</h2>
-      <ol class="mb-5">
-        <li>Log in with your Spotify account</li>
-        <li>View your recently played songs and see what mood you're in</li>
-        <li>Create a playlist with songs that match your mood</li>
-      </ol>
-    </div>
+    
   </div>
 </div>
 
-
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 text-center">
+      <h2 class="mb-5">How It Works</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-success">
+            <div class="card-body">
+              <h5 class="card-title text-light">1. Log In</h5>
+              <p class="card-text text-light">Log in with your Spotify account to access your recently played songs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-info">
+            <div class="card-body">
+              <h5 class="card-title text-light">2. Analyze Your Mood</h5>
+              <p class="card-text text-light">Using machine learning algorithms, the app analyzes your recently played songs and guesses your mood.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 bg-warning">
+            <div class="card-body">
+              <h5 class="card-title text-light">3. Create Your Playlist</h5>
+              <p class="card-text text-light">The app creates a playlist of songs that match your mood, which you can then save to your Spotify account.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

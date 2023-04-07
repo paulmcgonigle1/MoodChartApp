@@ -21,9 +21,7 @@ export class PlaylistService {
   };
   return this.http.post<any>(`${this.playlistsUrlAPIGATEWAY}`, playlistData, httpOptions);
 }
-//  getPlaylists(): Observable<any> {
-//   return this.http.get<any>(this.playlistsUrlAPIGATEWAY);
-// }
+
 
 getPlaylists(): Observable<any[]> {
   return this.http.get<any>(this.playlistsUrlAPIGATEWAY).pipe(
@@ -36,6 +34,13 @@ getPlaylists(): Observable<any[]> {
 
 
 
+}
+// deletePlaylist(playlistId: string): Observable<any> {
+//   return this.http.delete<any>(`${this.playlistsUrlAPIGATEWAY}/${playlistId}`);
+
+// }
+deletePlaylist(playlistId: string): Observable<any> {
+  return this.http.delete<any>(`${this.playlistsUrlAPIGATEWAY}/${playlistId}`);
 }
 getMoods(): Observable<string[]> {
   return this.getPlaylists().pipe(

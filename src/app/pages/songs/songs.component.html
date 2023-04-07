@@ -1,15 +1,23 @@
 <div class="container">
-  <h2>Most common mood Today: {{ getMostCommonMood() }}</h2>
   
-  <div class="add-playlist-section">
-    <h2>Add Playlist For todays mood</h2>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Enter playlist name" [(ngModel)]="playlistName">
-    </div>
-    <button class="btn btn-primary" (click)="createPlaylist(playlistName)">Create Playlist</button>
+  <div class="intro-section">
+    <h1>Welcome to Moodify Playlist Creation</h1>
+    <p>Moodify is a music app that creates custom playlists based on your current mood. Simply add a playlist for today's mood and we'll suggest songs that match your current vibe. Check out the most common mood of the day and explore the songs that are suggested below.</p>
   </div>
+  <div class="add-playlist-section">
+    <h2>Add Playlist For Today's Mood</h2>
 
-  <div class="song-container">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter playlist name" [(ngModel)]="playlistName" required>
+    </div>
+    <button class="btn btn-primary" (click)="createPlaylist(playlistName)" [disabled]="!playlistName">Create Playlist</button>
+  </div>
+  <h3 id>Most common mood Today: <span class="most-common-mood">{{ getMostCommonMood() }}</span></h3>
+
+  
+
+  
+ <div class="song-container">
     <div class="song-card" *ngFor="let song of songs">
       <img [src]="song.image" alt="Album cover" />
       <div>
@@ -24,3 +32,4 @@
     </div>
   </div>
 </div>
+

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service.service';
 
@@ -11,6 +12,8 @@ import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service
 })
 export class SongsComponent {
   public songs: any[] = [];
+  public playlistCreated: boolean = false;
+
   //setting up moodcounts, which is used in the method for getting the most common mood
   public moodCounts: Record<string, number> = {
     Happy: 0,
@@ -23,7 +26,7 @@ export class SongsComponent {
     Unknown: 0
   };
   public playlistName: string = '';
-  constructor(private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService, private playlistService:PlaylistService){}
+  constructor(private router: Router,private http:HttpClient,private route:ActivatedRoute, private spotifyService:SpotifyAuthServiceService, private playlistService:PlaylistService){}
  
   
     ngOnInit(): void {
@@ -128,8 +131,10 @@ getMostCommonMood(): string {
       };
       this.playlistService.addPlaylist(playlistData).subscribe((response: any) => {
         console.log('Playlist created:', response);
+        this.router.navigate(['/moods']);
       }, (error: any) => {
         console.error('Error creating playlist:', error);
       });
       }
+      
     }
