@@ -11,12 +11,7 @@ export class LoginComponent {
   constructor(private router: Router ,private spotifyAuthService: SpotifyAuthServiceService){}
 
   ngOnInit():void{
-    //this code checks if token is in local storage and then goes straight to home page
-    // const token = localStorage.getItem('token');
-    // if(token){
-    //   this.router.navigate(['/home']);
 
-    // }
     this.verifyUrlCallBackToken();
   }
   initiateAuth(){

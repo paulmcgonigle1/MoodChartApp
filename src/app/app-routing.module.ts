@@ -16,11 +16,7 @@ const routes: Routes = [
   
   // {path:'mood-analysis', component:MoodAnalysisComponent}
 ];
-// const routes: Routes = [
-//   {path: '', component: HomeComponent, },
-//   {path: 'home', component:HomeComponent},
-//   {path: 'login', component: LoginComponent}
-// ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
