@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   clientId: 'c4cd5531ce004764a2ef3a24bcb776b4',
-  redirectUrl: 'http://moodchartapp-production-b8d2.up.railway.app/login/',
+  redirectUrl: 'http://localhost:4200/',
   scopes:[
       "user-read-currently-playing", 
   "user-read-recently-played", 
