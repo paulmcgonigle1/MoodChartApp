@@ -19,6 +19,7 @@ export class SpotifyAuthServiceService {
     // const responseType = 'response_type=token&show_dialog=true';
     const responseType = 'token';
 
+    
     const spotifyAuthUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=${responseType}`;
 
     window.location.href = spotifyAuthUrl;
