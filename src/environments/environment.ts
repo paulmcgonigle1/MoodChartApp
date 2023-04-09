@@ -3,7 +3,7 @@ export const environment = {
 
     clientId: 'c81078cdef9b4b0a9b67759341b0e85f',
     authEndpoint: 'https://accounts.spotify.com/authorize',
-    redirectUrl: 'https://moodify3.web.app/callback',
+    redirectUrl: 'https://moodify4-c62cf.web.app/login',
     scopes:[
         "user-read-currently-playing", 
     "user-read-recently-played", 
