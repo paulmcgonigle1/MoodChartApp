@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  clientId: 'c4cd5531ce004764a2ef3a24bcb776b4',
+  clientId: 'c81078cdef9b4b0a9b67759341b0e85f',
   redirectUrl: 'https://moodify3.web.app/callback',
   scopes:[
       "user-read-currently-playing", 
