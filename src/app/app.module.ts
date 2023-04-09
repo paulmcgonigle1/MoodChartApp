@@ -13,6 +13,7 @@ import { SongsComponent } from './pages/songs/songs.component';
 import { PlaylistmoodsComponent } from './pages/playlistmoods/playlistmoods.component';
 import { PlaylistService } from './services/playlist.service';
 import { LoginComponent } from './pages/login/login.component';
+import { GaService } from './services/ga.service';
 // import { AuthGuardComponent } from './guards/auth-guard/auth-guard.component';
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   providers: [
     // SpotifyAuthServiceService
-    PlaylistService
+    PlaylistService,
+    GaService
   ],
   bootstrap: [AppComponent]
 })

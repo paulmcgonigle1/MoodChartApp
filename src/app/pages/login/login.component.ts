@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpotifyAuthServiceService } from 'src/app/services/spotify-auth-service.service';
-
+import { GaService } from 'src/app/services/ga.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private router: Router ,private spotifyAuthService: SpotifyAuthServiceService){}
+  constructor(private router: Router ,private spotifyAuthService: SpotifyAuthServiceService, private gaservice:GaService){}
 
   ngOnInit():void{
 
@@ -16,6 +16,9 @@ export class LoginComponent {
   }
   initiateAuth(){
     this.spotifyAuthService.redirectToSpotifyAuth();
+    
+    this.gaservice.sendEvent('login', 'successful');
+    
 
   }
   getSongs(){
