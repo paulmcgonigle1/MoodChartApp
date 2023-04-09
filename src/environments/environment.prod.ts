@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   clientId: 'c81078cdef9b4b0a9b67759341b0e85f',
-  redirectUrl: 'https://moodify5.web.app/login',
+  redirectUrl: 'https://moodify6.web.app/login',
   scopes:[
       "user-read-currently-playing", 
   "user-read-recently-played", 
