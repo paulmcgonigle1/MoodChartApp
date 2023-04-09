@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   clientId: 'c4cd5531ce004764a2ef3a24bcb776b4',
-  redirectUrl: 'https://moodchartapp-production-145c.up.railway.app/login',
+  redirectUrl: 'https://delicate-chalk-production.up.railway.app/login',
   scopes:[
       "user-read-currently-playing", 
   "user-read-recently-played", 
