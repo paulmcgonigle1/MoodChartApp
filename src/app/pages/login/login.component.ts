@@ -16,7 +16,7 @@ export class LoginComponent {
   }
   initiateAuth(){
     this.spotifyAuthService.redirectToSpotifyAuth();
-    
+    //using googleanalytics service to send login information and see how many times it has been accessed.
     this.gaservice.sendEvent('login', 'successful');
     
 
