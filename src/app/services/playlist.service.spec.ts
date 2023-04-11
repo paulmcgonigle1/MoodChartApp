@@ -99,8 +99,8 @@ describe('PlaylistService', () => {
         songs: ['Song 7', 'Song 8', 'Song 9']
       }
     ];
-
-    service.getPlaylists = jasmine.createSpy().and.returnValue({ pipe: () => ([playlists]) });
+//doesnt seem t work
+    // service.getPlaylists = jasmine.createSpy().and.returnValue({ pipe: () => ([playlists]) });
 
     service.getMoods().subscribe(response => {
       expect(response).toEqual(['Happy', 'Sad']);
